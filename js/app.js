@@ -63,6 +63,24 @@ $(document).ready(function () {
     });
   }
 
+  //Gif Button on click
+  $("#searchGif").on('click', function(){
+
+    var newSearch = $('#gifInput').val().trim();
+
+    //adds new item to array
+    searchTerms.push(newSearch);
+    
+    // re-renders buttons
+    renderButtons();
+
+    
+    return false;
+  })
+
+  //Gif topic on click
+    $(document).on('click', '.searchTerm', gifSearchDisplay);
+
 
 
 renderButtons();
