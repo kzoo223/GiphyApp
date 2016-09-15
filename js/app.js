@@ -28,7 +28,7 @@ $(document).ready(function () {
   function gifSearchDisplay(){
     $("#gifArea").empty();
     var type = ($(this).data("name"))
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q="+type+"&limit=10&api_key=dc6zaTOxFJmzC";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q="+type+"&limit=10&api_key=dc6zaTOxFJmzC";
 
         $.ajax({
             url: queryURL,
@@ -82,6 +82,20 @@ $(document).ready(function () {
     $(document).on('click', '.searchTerm', gifSearchDisplay);
 
 
+    //onclick pause play for gifs
+  $(document).on("click", ".giphy", function(){
+  var state = $(this).attr("data-state")
+
+   if (state == "animate") {
+                $(this).attr("src", $(this).data("still"));
+                $(this).attr("data-state", "still")
+    }
+    else {
+                $(this).attr("src", $(this).data("animate"))
+                $(this).attr("data-state", "animate")
+            }
+
+  });
 
 renderButtons();
 
